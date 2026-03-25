@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loukas & Santas - Grupo VIP Exclusivo</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        // SEU_PIXEL_AQUI - Substitua os zeros pelo ID do seu Pixel
+        fbq('init', '0000000000000000'); 
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=0000000000000000&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Playfair Display para Títulos (Serifa/Elegância) e Montserrat para Textos (Moderno/Clean) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        montserrat: ['"Montserrat"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f0f0f',       // Preto principal
+                            charcoal: '#1a1a1a',   // Cinza chumbo para variar fundos
+                            gold: '#C5A059',       // Dourado elegante
+                            goldLight: '#E8D399',  // Dourado claro para hovers/detalhes
+                            offwhite: '#F9F9F7',   // Fundo dos cards
+                            whatsapp: '#25D366',   // Verde WhatsApp Vivo
+                            whatsappHover: '#1EBE5D'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Pulse Animation Premium para os Botões CTA */
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .btn-pulse {
+            animation: pulse-whatsapp 2.5s infinite;
+        }
+
+        /* Novas Animações Adicionadas */
+        
+        /* 1. Efeito de Brilho (Shine) passando pelo botão */
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            animation: shine 4s infinite;
+        }
+
+        /* 2. Efeito de Flutuação suave para a foto Hero */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* 3. Efeito de Surgimento ao rolar a página (Scroll Reveal) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Suavização de imagens e textos */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Efeito sutil de aparecimento (Fade In) */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-montserrat text-brand-offwhite bg-brand-dark selection:bg-brand-gold selection:text-white">
+
+    <!-- HERO SECTION -->
+    <header class="relative overflow-hidden fade-in">
+        <div class="max-w-7xl mx-auto px-6 py-12 lg:py-20 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[90vh]">
+            
+            <!-- Coluna de Texto (Esquerda no Desktop, Topo no Mobile) -->
+            <div class="flex flex-col items-center text-center lg:items-start lg:text-left z-10">
+                
+                <!-- Logo -->
+                <div class="mb-10">
+                    <img src="./logo-loukas.webp" alt="Loukas & Santas Logo" class="h-20 md:h-28 object-contain drop-shadow-lg" onerror="this.src='https://placehold.co/300x120/111/C5A059?text=Loukas+%26+Santas&font=Playfair+Display'">
+                </div>
+
+                <!-- Copy Hero -->
+                <h1 class="font-playfair text-3xl md:text-5xl lg:text-[3.5rem] font-semibold text-white mb-6 leading-[1.2] tracking-wide">
+                    O espaço exclusivo onde <span class="text-brand-gold italic">mulheres sofisticadas</span> têm acesso antecipado à nossa curadoria premium.
+                </h1>
+                
+                <p class="text-gray-300 text-base md:text-lg mb-10 leading-relaxed font-light max-w-xl">
+                    Junte-se ao seleto Grupo VIP da Loukas & Santas no WhatsApp. Receba em primeira mão nossos lançamentos, convites para ações exclusivas na loja e condições especiais em moda casual e festa antes de todo mundo.
+                </p>
+
+                <!-- CTA -->
+                <div class="w-full max-w-md lg:max-w-sm reveal delay-200">
+                    <a href="https://chat.whatsapp.com/DWEaAurxsV3GUrKzJolQkZ" target="_blank" rel="noopener noreferrer" class="whatsapp-cta btn-pulse btn-shine relative flex items-center justify-center w-full px-6 py-5 text-sm md:text-base font-bold text-white uppercase tracking-wider transition-all duration-300 bg-brand-whatsapp rounded-full border border-brand-whatsapp hover:bg-brand-whatsappHover hover:border-brand-whatsappHover shadow-lg hover:shadow-xl hover:-translate-y-1 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16" class="mr-2 transform group-hover:scale-110 transition-transform duration-300">
+                            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.1-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                        </svg>
+                        QUERO ENTRAR NO GRUPO VIP
+                    </a>
+                    <p class="mt-4 text-xs tracking-widest text-brand-gold uppercase text-center flex items-center justify-center gap-1 opacity-80">
+                        <span>🔒</span> 100% Gratuito. Vagas limitadas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Coluna Imagem Hero (Direita no Desktop, Base no Mobile) -->
+            <div class="relative w-full flex justify-center lg:justify-end lg:h-[80vh] reveal delay-300">
+                <!-- Moldura decorativa sutil -->
+                <div class="absolute inset-0 border border-brand-gold/30 rounded-[3rem] translate-x-4 translate-y-4 -z-10 hidden md:block animate-float" style="animation-delay: 0.5s;"></div>
+                
+                <!-- Foto Principal -->
+                <img src="./foto-hero.webp" alt="Moda Premium Loukas & Santas" class="w-full max-w-md lg:max-w-full h-[500px] lg:h-full object-cover object-top rounded-3xl lg:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 animate-float" onerror="this.src='https://placehold.co/600x800/222/C5A059?text=Foto+Elegante+Aqui'">
+            </div>
+        </div>
+    </header>
+
+    <!-- BENEFÍCIOS SECTION -->
+    <section class="bg-brand-charcoal py-20 px-6 lg:px-8 border-t border-brand-gold/10 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-playfair text-2xl md:text-4xl lg:text-5xl font-semibold text-center text-white mb-16 tracking-wide reveal">
+                O que você ganha ao entrar no nosso <span class="text-brand-gold italic">círculo de exclusividade?</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-brand-offwhite p-10 rounded-3xl flex flex-col items-center text-center transition-transform hover:-translate-y-2 duration-300 border border-brand-gold/20 shadow-xl group reveal" style="transition-delay: 100ms;">
+                    <div class="text-4xl mb-6 transform group-hover:scale-125 transition-transform duration-500">✨</div>
+                    <h3 class="font-playfair text-xl font-bold text-brand-dark mb-4 tracking-wide uppercase">Novidades em Primeira Mão</h3>
+                    <div class="w-12 h-[1px] bg-brand-gold mb-5"></div>
+                    <p class="text-gray-600 font-light text-sm leading-relaxed">
+                        Conheça as novas coleções de moda casual e vestidos de festa antes mesmo que as peças cheguem às araras da loja física.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-brand-offwhite p-10 rounded-3xl flex flex-col items-center text-center transition-transform hover:-translate-y-2 duration-300 border border-brand-gold/20 shadow-xl group reveal" style="transition-delay: 200ms;">
+                    <div class="text-4xl mb-6 transform group-hover:scale-125 transition-transform duration-500">🥂</div>
+                    <h3 class="font-playfair text-xl font-bold text-brand-dark mb-4 tracking-wide uppercase">Ações Exclusivas</h3>
+                    <div class="w-12 h-[1px] bg-brand-gold mb-5"></div>
+                    <p class="text-gray-600 font-light text-sm leading-relaxed">
+                        Acesso a promoções selecionadas e convites especiais para eventos presenciais na nossa boutique em Varginha.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-brand-offwhite p-10 rounded-3xl flex flex-col items-center text-center transition-transform hover:-translate-y-2 duration-300 border border-brand-gold/20 shadow-xl group reveal" style="transition-delay: 300ms;">
+                    <div class="text-4xl mb-6 transform group-hover:scale-125 transition-transform duration-500">👗</div>
+                    <h3 class="font-playfair text-xl font-bold text-brand-dark mb-4 tracking-wide uppercase">Curadoria Premium</h3>
+                    <div class="w-12 h-[1px] bg-brand-gold mb-5"></div>
+                    <p class="text-gray-600 font-light text-sm leading-relaxed">
+                        Dicas de estilo e sugestões de looks escolhidos a dedo pela Leila Piva, com a qualidade e tradição de mais de 28 anos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROVA SOCIAL SECTION -->
+    <section class="bg-brand-dark py-24 px-6 lg:px-8 relative overflow-hidden">
+        <!-- Detalhe de fundo geométrico suave -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" style="background-image: radial-gradient(#C5A059 1px, transparent 1px); background-size: 40px 40px;"></div>
+        
+        <div class="max-w-5xl mx-auto relative z-10">
+            <h2 class="font-playfair text-2xl md:text-4xl lg:text-5xl font-semibold text-center text-white mb-16 tracking-wide reveal">
+                Quem já conhece, <span class="text-brand-gold italic">ama!</span>
+            </h2>
+
+            <!-- Depoimentos (Apenas texto) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Depoimento 1 -->
+                <div class="bg-brand-offwhite p-10 rounded-3xl border border-brand-gold/30 shadow-2xl relative reveal" style="transition-delay: 100ms;">
+                    <span class="absolute -top-6 -left-2 text-7xl text-brand-gold opacity-30 font-serif">"</span>
+                    <div class="flex text-brand-gold text-lg mb-6 tracking-widest">★★★★★</div>
+                    <p class="font-montserrat text-brand-dark text-base md:text-lg leading-relaxed font-light italic">
+                        Sempre encontro o vestido perfeito para os meus eventos. A curadoria é impecável e o atendimento faz toda a diferença!
+                    </p>
+                </div>
+                
+                <!-- Depoimento 2 -->
+                <div class="bg-brand-offwhite p-10 rounded-3xl border border-brand-gold/30 shadow-2xl relative mt-4 md:mt-12 reveal" style="transition-delay: 200ms;">
+                    <span class="absolute -top-6 -left-2 text-7xl text-brand-gold opacity-30 font-serif">"</span>
+                    <div class="flex text-brand-gold text-lg mb-6 tracking-widest">★★★★★</div>
+                    <p class="font-montserrat text-brand-dark text-base md:text-lg leading-relaxed font-light italic">
+                        Amo as peças! Têm um caimento perfeito e me deixam elegante para o dia a dia e para o trabalho. Participar do grupo facilita muito as minhas escolhas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CTA FINAL -->
+    <section class="bg-brand-charcoal py-20 px-6 lg:px-8 text-center border-t border-brand-gold/20 rounded-t-[3rem] lg:rounded-t-[4rem] overflow-hidden">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="font-playfair text-3xl md:text-4xl font-semibold text-white mb-6 reveal">
+                Não fique de fora das nossas <span class="text-brand-gold italic">próximas novidades.</span>
+            </h2>
+            <p class="text-gray-300 font-light text-base md:text-lg mb-12 max-w-2xl mx-auto leading-relaxed reveal" style="transition-delay: 100ms;">
+                As peças mais exclusivas esgotam rapidamente. Entre no grupo agora mesmo e garanta o seu acesso prioritário à curadoria da Loukas & Santas.
+            </p>
+
+            <div class="flex justify-center mb-16 reveal" style="transition-delay: 200ms;">
+                <a href="https://chat.whatsapp.com/DWEaAurxsV3GUrKzJolQkZ" target="_blank" rel="noopener noreferrer" class="whatsapp-cta btn-pulse btn-shine inline-flex items-center justify-center w-full md:w-auto px-8 py-5 text-sm md:text-base font-bold text-white uppercase tracking-wider transition-all duration-300 bg-brand-whatsapp rounded-full border border-brand-whatsapp hover:bg-brand-whatsappHover hover:-translate-y-1 shadow-[0_10px_30px_rgba(37,211,102,0.3)] hover:shadow-[0_15px_40px_rgba(37,211,102,0.4)] group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16" class="mr-2 transform group-hover:scale-110 transition-transform duration-300">
+                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.1-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                    </svg>
+                    QUERO ENTRAR NO GRUPO VIP
+                </a>
+            </div>
+            
+            <div class="text-sm font-light text-gray-400 space-y-3">
+                <p>A Loukas & Santas fica em Varginha/MG e envia para todo o Brasil.</p>
+                <p>
+                    Acompanhe também no Instagram: 
+                    <a href="https://www.instagram.com/loukassantas/" target="_blank" rel="noopener noreferrer" class="text-brand-gold hover:text-white transition-colors uppercase tracking-widest text-xs font-semibold ml-1">
+                        @loukassantas
+                    </a>
+                </p>
+                <p class="mt-8 text-xs opacity-60 uppercase tracking-widest pt-4">
+                    &copy; 2026 Boutique Loukas & Santas. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STICKY WHATSAPP BUTTON -->
+    <a href="https://chat.whatsapp.com/DWEaAurxsV3GUrKzJolQkZ" target="_blank" rel="noopener noreferrer" class="whatsapp-cta fixed bottom-6 right-6 z-50 bg-brand-whatsapp text-white p-4 rounded-full shadow-[0_10px_25px_-5px_rgba(37,211,102,0.5)] hover:bg-brand-whatsappHover hover:-translate-y-2 transition-all duration-300 flex items-center justify-center group btn-pulse btn-shine" aria-label="Entrar no Grupo VIP">
+        <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" viewBox="0 0 16 16" class="transform group-hover:scale-110 transition-transform duration-300">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.1-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <!-- Custom Script for Pixel Click Tracking & Scroll Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Seleciona todos os botões com a classe .whatsapp-cta para o Pixel
+            const buttons = document.querySelectorAll('.whatsapp-cta');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Dispara o evento 'Lead' do Meta Pixel
+                    if(typeof fbq === 'function') {
+                        fbq('track', 'Lead');
+                        console.log('Evento de Lead disparado para o Pixel.');
+                    }
+                });
+            });
+
+            // Intersection Observer para animações de Scroll Reveal
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 // Dispara quando 15% do elemento estiver visível
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Anima apenas uma vez
+                    }
+                });
+            }, observerOptions);
+
+            // Observa todos os elementos com a classe .reveal
+            document.querySelectorAll('.reveal').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
